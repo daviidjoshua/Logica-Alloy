@@ -5,7 +5,7 @@ Alunos : David Joshua & Gabriel Cavalcanti
 
 
 
-## Projeto : Uber Interno UFCG
+# Projeto : Uber Interno UFCG
 
 ## Usuários
 
@@ -13,37 +13,30 @@ Alunos : David Joshua & Gabriel Cavalcanti
 
 > Podem ser Passageiro e Motorista
 
-> Cadastrados no Sistema
+> Usuários agrupados por regiões
 
-> Passageiros agrupados por regiões
-
-> Outras cidades ofereçem e recebem corridas.
 
 ## Sistema de Registro de Corridas
 
 > Armazena um registro de caronas e corridas
 
-> Usa serviço: +1 débito
+> Pega uma carona: +1 débito
 
-> Dá carona: +1 crédito
+> Dá uma carona: +1 crédito
 
 > Fim do mês contabilidade é feita para pegar ou receber
-
-## Horários
-
-> Ida para UFCG: 7h30, 9h30, 13h30, 15h30
-
-> Saída da UFCG: 10h00, 12h00, 16h00, 18h00
 
 
 ## Corridas
 
-> até 3 passageiros, além do motorista
+> Até 3 passageiros, além do motorista
+
 > Corridas acontecem todos os dias da semana, nos horários agendados
 
-> Total de corridas por dia: 8
+> Ida para UFCG: 8h, 10h, 12h, 16h
 
-> Total de corridas por semana: 56
+> Saída da UFCG: 10h00, 12h00, 16h00, 18h00
+
 
 ## Regiões
 
