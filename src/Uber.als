@@ -61,7 +61,8 @@ pred checkPassageiros[u:Uber] {
 
 // Verifica se o motorista não é um passageiro
 pred checkMotorista[u:Uber] {
-    #u.motorista !in u.passageiros
+    u.motorista !in u.passageiros
+    #u.motorista = 1
 }
 
 // Verifica se as regiões são as mesmas
