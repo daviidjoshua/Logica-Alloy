@@ -48,3 +48,9 @@ Alunos : David Joshua & Gabriel Cavalcanti
 ## Regiões
 
 > Centro | Leste | Oeste | Norte | Sul
+
+
+### **To-Do List**
+
+- Verificar que corridas de mesmo horário possuem usuários diferentes
+- Fazer o "sistema" "predicado" de crédito e débito, que eu não fiz
