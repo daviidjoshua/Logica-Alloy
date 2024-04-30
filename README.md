@@ -47,3 +47,4 @@ Alunos : David Joshua & Gabriel Cavalcanti
 
 - Verificar que corridas de mesmo horário possuem usuários diferentes
 - Fazer o "sistema" "predicado" de crédito e débito, que eu não fiz
+- Resolvar essa bomba: https://prnt.sc/35Njtk5k9jLV 

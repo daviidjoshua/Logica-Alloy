@@ -6,7 +6,7 @@ abstract sig User {
     region: one Region
 }
 
-one sig Estudante, Professor, Servidor extends Usuario{}
+one sig Estudante, Professor, Servidor extends User{}
 
 sig Motorista in User {}
 sig Passageiro in User {}
@@ -18,29 +18,23 @@ sig Credito in Motorista {}
 
 // Criação das Regiões
 
-abstract sig Region extends Region {}
+abstract sig Region{}
 one sig Centro, Oeste, Leste, Norte, Sul extends Region {}
 
 // Criação dos Horários de Corridas
 
 abstract sig Horario {}
 
-// Definição para horários de Ida
-abstract sig Ida extends Horario {}
-
-// Definição para horários de Saída
-abstract sig Saida extends Horario {}
-
-one sig 8, 10, 14, 16, extends Ida {}
-one sig 10, 12, 16, 18 extends Saida {}
+one sig ida_8, ida_10, ida_14, ida_16 extends Horario {}
+one sig saida_10, saida_12, saida_16, saida_18 extends Horario {}
 
 // Criação da corrida
 
 sig Uber {
-    origem : one Region
-    horarioSaida : one Horario
-    motorista : one Motorista
-    passageiros : set Passageiro
+    region: one Region,
+    horarioSaida: one Horario,
+    motorista: one Motorista,
+    passageiros: set Passageiro
 }
 
 
@@ -48,30 +42,33 @@ sig Uber {
 
 // Valida se o usuário é professor, estudante ou servidor
 pred checkUsers[u:Uber] {
-    u.motorista in Aluno + Professor + Servidor
+    u.motorista in Estudante + Professor + Servidor
     
-    all p: u.passageiros | p in Aluno + Professor + Servidor
+    all p: u.passageiros | p in Estudante + Professor + Servidor
 }
 
 // Valida se o número de passageiros está dentro do limite
 pred checkPassageiros[u:Uber] {
     #u.passageiros > 0
     #u.passageiros <= 3
+    
+    all p: u.passageiros |
+        (p not in Motorista)
 }
 
 // Verifica se o motorista não é um passageiro
 pred checkMotorista[u:Uber] {
     u.motorista !in u.passageiros
+    u.motorista not in Passageiro
     #u.motorista = 1
 }
 
 // Verifica se as regiões são as mesmas
-pred checkRegion[u:uber] {
+pred checkRegion[u: Uber] {
     u.motorista.region = u.region
 
     all p: u.passageiros |
-        p.region = u.region
-        p.region = u.motorista.region
+        (p.region = u.region) and (p.region = u.motorista.region)
 }
 
 
@@ -80,7 +77,8 @@ fact {
         checkMotorista[u] && checkRegion[u]
 }
 
-fact {
-    all 
-}
+fact { all p:Passageiro | one d:Debito | d in p }
+fact { all m:Motorista | one c:Credito | c in m }
 
+
+run{} for 5
