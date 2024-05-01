@@ -4,6 +4,10 @@ Trabalho de Alloy
 Alunos : David Joshua & Gabriel Cavalcanti
 
 
+> Lógica feita quando tem um elemento de Estudante, Professor e Servidor
+
+> Próximo passo é fazer a lógica para a ocorrência de mais de um elemento
+
 
 # Projeto : Uber Interno UFCG
 
@@ -45,6 +49,5 @@ Alunos : David Joshua & Gabriel Cavalcanti
 
 ### **To-Do List**
 
+- Mais de um elemento por Estudante, Professor e Servidor
 - Verificar que corridas de mesmo horário possuem usuários diferentes
-- Fazer o "sistema" "predicado" de crédito e débito, que eu não fiz
-- Resolvar essa bomba: https://prnt.sc/35Njtk5k9jLV 
