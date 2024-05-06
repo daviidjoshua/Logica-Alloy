@@ -6,7 +6,7 @@ abstract sig User {
     region: one Region
 }
 
-one sig Estudante, Professor, Servidor extends User{}
+sig Estudante, Professor, Servidor extends User{}
 
 sig Motorista in User {}
 sig Passageiro in User {}
@@ -85,5 +85,13 @@ fact { all p:Passageiro | one d:Debito | d in p }
 // Para todo motorista existirá um crédito nele
 fact { all m:Motorista | one c:Credito | c in m }
 
+fact NoDuplicateUber {
+    all u1, u2: Uber |
+        u1 != u2 =>
+            (u1.region != u2.region) or
+            (u1.horarioSaida != u2.horarioSaida) or
+            (u1.motorista != u2.motorista) or
+            (u1.passageiros != u2.passageiros)
+}
 
 run{}
